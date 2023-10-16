@@ -1,0 +1,21 @@
+name: Docker test
+
+
+on: 
+  push:
+    paths: 
+      - Docker
+    branches: 
+      - main
+  pull_requests: 
+    paths: 
+      - Docker
+    
+
+jobs: 
+  build_docker:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
