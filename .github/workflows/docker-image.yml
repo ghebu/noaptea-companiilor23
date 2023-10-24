@@ -26,6 +26,7 @@ jobs:
         docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
 
     - name: Deploy to Docker Hub
-        if: ${{ github.ref == 'refs/heads/master' }}
-        run: docker push ghebu/awscli 
+      if: ${{ github.ref == 'refs/heads/master' }}
+      run: docker push ghebu/awscli 
+
 
