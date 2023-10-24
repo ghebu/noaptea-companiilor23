@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build:
+  docker build:
 
     runs-on: ubuntu-latest
 
@@ -25,19 +25,9 @@ jobs:
       run: |
         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD 
 
-  push:
-
-    runs-on: ubuntu-latest
-
-    steps:
     - name: Deploy to Docker Hub
       if: ${{ github.ref == 'refs/heads/main' }}
       run: docker push ghebu/awscli 
 
-  cleanup:
-
-    runs-on: ubuntu-latest
-
-    steps:
     - name: Docker logout
       run: docker logout 
