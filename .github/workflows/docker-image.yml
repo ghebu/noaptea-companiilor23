@@ -24,10 +24,13 @@ jobs:
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
         docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD 
-
+  push:
+    steps:
     - name: Deploy to Docker Hub
       if: ${{ github.ref == 'refs/heads/main' }}
       run: docker push ghebu/awscli 
 
+  cleanup:
+    steps:
     - name: Docker logout
       run: docker logout 
