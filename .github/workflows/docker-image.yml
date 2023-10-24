@@ -20,10 +20,10 @@ jobs:
     - name: Docker login
       if: ${{ github.ref == 'refs/heads/main' }}
       env:
-        DOCKER_USER: ${{secrets.DOCKER_USER}}
+        DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: |
-        docker login -u $DOCKER_USER -p $DOCKER_PASSWORD 
+        docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD 
 
     - name: Deploy to Docker Hub
       if: ${{ github.ref == 'refs/heads/main' }}
